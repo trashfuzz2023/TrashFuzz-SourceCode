@@ -1,0 +1,34 @@
+map_name = "borregas_ave";
+car_model = "gt_sensors";
+initial_position = (587120.77, 4141205.08);
+ego_init_state = (initial_position);
+target_position = (586952.54, 4141210.20);
+//target_position = "lane_14" -> 20;
+ego_target_state = (target_position);
+vehicle_type = (car_model);
+ego_vehicle = AV(ego_init_state, ego_target_state, vehicle_type);
+
+
+
+
+time = 12:00;
+weather = {rain:0.5, snow: 0.1, wetness: heavy};
+evn = Environment(time, weather);
+
+scenario0 = CreateScenario{load(map_name);
+			        ego_vehicle;
+			        {}; // no vehicles;
+			        {}; // no pedestrians;
+			        {}; // no obstacles;
+			        evn;
+};
+
+Trace trace = EXE(scenario0);
+
+//law46
+law_46_sub2 = G( (direction == left | direction == right | isTurningAround) -> (speed <= 30 ));
+//law_46_sub3 = G( (rain >= 0.5 | fog >= 0.5 | snow >=0.5 | visibility <= 50 ) -> (speed <= 30));
+//law46 = (law_46_sub2) & (law_46_sub3);
+
+
+trace |= law_46_sub2; 

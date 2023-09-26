@@ -1,0 +1,45 @@
+map_name = "borregas_ave";
+car_model = "gt_sensors";
+initial_position = (587004.99, 4141387.64) ;
+ego_init_state = (initial_position);
+target_position = (587064.15, 4141615.15);
+ego_target_state = (target_position);
+vehicle_type = (car_model);
+ego_vehicle = AV(ego_init_state, ego_target_state, vehicle_type);
+
+
+
+
+time = 12:00;
+weather = {rain:0.5, snow: 0.1, wetness: heavy};
+evn = Environment(time, weather);
+
+scenario0 = CreateScenario{load(map_name);
+			        ego_vehicle;
+			        {}; // no vehicles;
+			        {}; // no pedestrians;
+			        {}; // no obstacles;
+			        evn;
+};
+
+Trace trace = EXE(scenario0);
+
+//law38
+//Green Lights
+law38_sub1_1 = (trafficLightAhead.color == green) & (stoplineAhead(2) | junctionAhead(2)) & ~PriorityNPCAhead & ~PriorityPedsAhead;
+law38_sub1_2 = F[0,2](speed > 0.5);
+law38_sub1 = G (law38_sub1_1 -> law38_sub1_2); 
+//Yellow Lights
+law38_sub2_1 = ((trafficLightAhead.color == yellow) & (stoplineAhead(0) | currentLane.number == 0)) -> (F[0,2] (speed > 0.5));
+law38_sub2_2 = ((trafficLightAhead.color == yellow) & stoplineAhead(3.5) & ~stoplineAhead(0.5) & currentLane.number > 0) -> (F[0,3] (speed < 0.5));
+law38_sub2 = G (law38_sub2_1 & law38_sub2_2); 
+//Red LightS
+law38_sub3_1 = ((trafficLightAhead.color == red) & (stoplineAhead(2) | junctionAhead(2)) & ~(direction == right)) -> (F[0,3] (speed < 0.5));
+law38_sub3_2 = ((trafficLightAhead.color == red) & (stoplineAhead(2) | junctionAhead(2)) & direction == right & ~PriorityNPCAhead & ~PriorityPedsAhead) -> (F[0,2] (speed > 0.5));
+law38_sub3 = G (law38_sub3_1 & law38_sub3_2); 
+law38 = law38_sub1 & law38_sub2 & law38_sub3;
+
+
+
+//trace |= law38 & law44 & law45 & law46 & law47 & law50 & law51 & law52 & law53 & law57 & law58 & law59 & law62; 
+trace |= law38;
