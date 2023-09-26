@@ -1,0 +1,96 @@
+{
+  "ScenarioName": "scenario0",
+  "MapVariable": "",
+  "map": "borregas_ave",
+  "time": {
+    "hour": 12,
+    "minute": 0
+  },
+  "weather": {
+    "rain": 0.0,
+    "sunny": 0.1,
+    "wetness": 0.0,
+    "fog": 0.0
+  },
+  "ego": {
+    "ID": "ego_vehicle",
+    "name": "gt_sensors",
+    "groundTruthPerception": true,
+    "color": null,
+    "start": {
+      "position": {
+        "x": 587004.99,
+        "y": 4141387.64,
+        "z": 0
+      },
+      "heading": {
+        "ref_point": {
+          "x": 587004.99,
+          "y": 4141387.64,
+          "z": 0
+        },
+        "ref_angle": 0.0
+      },
+      "speed": 0.0,
+      "lane_position": {
+        "lane": "lane_19",
+        "offset": 136.72680940783357
+      }
+    },
+    "destination": {
+      "position": {
+        "x": 587092.22,
+        "y": 4141560.38,
+        "z": 0
+      },
+      "heading": {
+        "ref_point": {
+          "x": 587064.15,
+          "y": 4141615.15,
+          "z": 0
+        },
+        "ref_angle": 0.0
+      },
+      "speed": 0.0,
+      "lane_position": {
+        "lane": "lane_15",
+        "offset": 13.989138175422775
+      }
+    }
+  },
+  "npcList": [],
+  "pedestrianList": [],
+  "obstacleList": [
+    {
+      "type": "BigTrashBin",
+      "forward": 175.65185703579895,
+      "right": 6.255426648292445,
+      "rotation": -200.72086626114347
+    },
+    {
+      "type": "Bin",
+      "forward": 170.65185703579895,
+      "right": 5.905426648292445,
+      "rotation": 122.72086626114347
+    },
+    {
+      "type": "Bench1",
+      "forward": 100.65185703579895,
+      "right": 5.905426648292445,
+      "rotation": 222.72086626114347
+    },
+    {
+      "type": "Bin",
+      "forward": 70.65185703579895,
+      "right": 5.805426648292445,
+      "rotation": 222.72086626114347
+    },
+    {
+      "type": "BinGreen",
+      "forward": 50.65185703579895,
+      "right": 4.995426648292445,
+      "rotation": 222.72086626114347
+    }
+  ],
+  "AgentNames": []
+}

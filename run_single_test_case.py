@@ -634,7 +634,7 @@ def test_scenario(direct, item, scenario_spec):
 
 
 if __name__ == "__main__":
-    input_file = 'codes_testing/law38.txt'
+    input_file = 'codes_testing/laws.txt'
     # input_file = 'test_cases/final/intersection2.txt'
     # # input_file = 'test_cases/intersection/intersection1.txt'
     isGroundTruth = True
@@ -642,8 +642,8 @@ if __name__ == "__main__":
     scenario_spec = extracted_script.Get_Specifications()
     # single_spec = SingleAssertion(scenario_spec[scenario_name][0], "san_francisco")
 
-    direct = 'Cases/'
-    item = 'law38_case.json'
+    direct = 'example/'
+    item = 'example.json'
     test_scenario(direct, item, scenario_spec)
 
 
