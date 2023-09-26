@@ -30,8 +30,8 @@ Set the LGSVL to API-Only mode.
 	```bash
 	cd /root_of_TrashFuzz-SourceCode/bridge
 	```
-	Find file: [bridge.py](https://github.com/trashfuzz2023/TrashFuzz-SourceCode/blob/main/bridge/bridge_attack.py).
-	There is class `Server` in [bridge.py](https://github.com/trashfuzz2023/TrashFuzz-SourceCode/blob/main/bridge/bridge.py). 
+	Find file: [bridge_attack.py](https://github.com/trashfuzz2023/TrashFuzz-SourceCode/blob/main/bridge/bridge_attack.py).
+	There is class `Server` in [bridge_attack.py](https://github.com/trashfuzz2023/TrashFuzz-SourceCode/blob/main/bridge/bridge_attack.py). 
 
 	Modify the `SIMULATOR_HOST` and `SIMULATOR_PORT` of `Server` to your IP and port of LGSVL.
 	Modify the `BRIDGE_HOST` and `BRIDGE_PORT` of `Server` to your IP and port of Apollo.
