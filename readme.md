@@ -19,6 +19,13 @@ Please refer to [the github page](https://github.com/nickovic/rtamt) for install
 Please refer to [the detailed documentation](https://www.svlsimulator.com/docs/system-under-test/apollo-master-instructions/) for co-simulation of Apollo with LGSVL.
 Set the LGSVL to API-Only mode.
 
+## Add adversarial objects to LGSVL
+1. Download the adversarial objects assets
+```bash
+	cd /root/of/the/lgsvl/AssetBundles/Controllables
+	git clone https://github.com/trashfuzz2023/Adversarial_Object_Assets.git
+	```
+
 ## Setup our bridge.
 1. Download and go to the root. Note that the source code should be downloaded and set up on the computer running Apollo.
 	```bash
