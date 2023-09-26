@@ -21,7 +21,7 @@ Set the LGSVL to API-Only mode.
 
 ## Add adversarial objects to LGSVL
 1. Download the adversarial objects assets
-```bash
+	```bash
 	cd /root/of/the/lgsvl/AssetBundles/Controllables
 	git clone https://github.com/trashfuzz2023/Adversarial_Object_Assets.git
 	```
